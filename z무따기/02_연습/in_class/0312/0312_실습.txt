@@ -1,0 +1,4 @@
+1) KBO 사이트에서 2023년 데이터를 스크랩한 후, 선수명을 오름차순으로 정렬, 팀명이 NC인 선수만 필터링하여, 엑셀 파일 생성
+https://www.koreabaseball.com/Record/Player/HitterBasic/Basic1.aspx
+
+2) ACME-WorkItems에서 테이블을 추출한 후 가공하여, WI3, Open인 행을 가져오는 새로운DT 만들어서 시트 생성
