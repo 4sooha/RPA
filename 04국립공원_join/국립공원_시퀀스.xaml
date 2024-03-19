@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="국립공원_시퀀스" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="702.4,1436" sap2010:WorkflowViewState.IdRef="국립공원_시퀀스_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="국립공원_시퀀스" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="869.6,1500.8" sap2010:WorkflowViewState.IdRef="국립공원_시퀀스_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -89,23 +89,11 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="데이터테이블 연결하기&#xD;&#xA;&#xD;&#xA;- &quot;산이름_joinDT.xlsx&quot; 시트를 열어서 Copy File 한다. (파일명 : 산이름_JoinDT_정수진.xlsx)&#xD;&#xA;- 국립공원시트와 탐방코스를 읽어 두개의 DT를 생성한다.&#xD;&#xA;- 두 DT를 결합 및 가공하여 Result 시트에 기입한다.&#xD;&#xA;&#xD;&#xA;- 가공 규칙1: dt탐방코스와 dt국립공원에서 산이름 컬럼의 값이 같을 때 결합&#xD;&#xA;- 가공 규칙2: 결합한 새로운 DT에서 탐방코스 컬럼에 값이 비어있는 행 삭제&#xD;&#xA;- 가공 규칙3: 산이름 오름차순 정렬" DisplayName="국립공원_시퀀스" sap:VirtualizedContainerService.HintSize="416,1371.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="데이터테이블 연결하기&#xA;&#xA;- &quot;산이름_joinDT.xlsx&quot; 시트를 열어서 Copy File 한다. (파일명 : 산이름_JoinDT_정수진.xlsx)&#xA;- 국립공원시트와 탐방코스를 읽어 두개의 DT를 생성한다.&#xA;- 두 DT를 결합 및 가공하여 Result 시트에 기입한다.&#xA;&#xA;- 가공 규칙1: dt탐방코스와 dt국립공원에서 산이름 컬럼의 값이 같을 때 결합&#xA;- 가공 규칙2: 결합한 새로운 DT에서 탐방코스 컬럼에 값이 비어있는 행 삭제&#xA;- 가공 규칙3: 산이름 오름차순 정렬" DisplayName="국립공원_시퀀스" sap:VirtualizedContainerService.HintSize="416,1436" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="dt국립공원">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="New System.Data.DataTable" />
-        </Variable.Default>
-      </Variable>
-      <Variable x:TypeArguments="sd:DataTable" Name="dt탐방코스">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="New System.Data.DataTable" />
-        </Variable.Default>
-      </Variable>
-      <Variable x:TypeArguments="sd:DataTable" Name="dt결과테이블">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="New System.Data.DataTable" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt국립공원" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt탐방코스" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt결과테이블" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -162,6 +150,50 @@
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
     <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="산이름" DataTable="[dt결과테이블]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="353.6,120.8" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[dt결과테이블]" SortOrder="Ascending" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="353.6,64.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="542.4,288.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign sap2010:Annotation.AnnotationText="컬럼을 여러개 정렬할 때 == &quot;[컬럼1] ASC, [컬럼2] ASC&quot;" DisplayName="컬럼을 정렬하는 또 다른 방법 | Multiple Assign" sap:VirtualizedContainerService.HintSize="480,202.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[dt결과.DefaultView.Sort]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[산이름] ASC</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="sd:DataTable">[dt결과]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="sd:DataTable">[dt결과.DefaultView.ToTable]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:MultipleAssign>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
     <ui:WriteRange AddHeaders="True" DataTable="[dt결과테이블]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="353.6,156" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Result" StartingCell="A1" WorkbookPath="excel_data\산이름_JoinDT_김수하.xlsx" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;end&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &quot;]">
       <sap:WorkflowViewStateService.ViewState>
