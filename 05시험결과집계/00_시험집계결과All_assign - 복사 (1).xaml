@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1235,4523</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1237,4951</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_01_CopyFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -46,6 +46,7 @@
       <x:String>UiPath.DataTableUtilities</x:String>
       <x:String>System.Numerics</x:String>
       <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Activities.System.Arrays</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -110,7 +111,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="00_시험집계결과All_assign" sap:VirtualizedContainerService.HintSize="722,4458" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence DisplayName="00_시험집계결과All_assign" sap:VirtualizedContainerService.HintSize="722,4886" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:String" Name="strResultPath" />
@@ -118,14 +119,18 @@
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.data.DataTable]" Name="dt_Output" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.data.DataTable]" Name="dt_기준" />
       <Variable x:TypeArguments="x:String" Name="str과목" />
+      <Variable x:TypeArguments="x:String" Name="str기준점수" />
       <Variable x:TypeArguments="x:String" Name="str합격여부" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_count" />
       <Variable x:TypeArguments="x:Int32" Name="int점수" />
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(of String)]" Name="list과목_점수" />
       <Variable x:TypeArguments="x:String" Name="strDT" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.data.DataTable]" Name="dt_합격률결과" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.data.DataTable]" Name="dt_합격률" />
       <Variable x:TypeArguments="x:Double" Name="int합격률" />
       <Variable x:TypeArguments="x:Int32" Name="int과목별총개수" />
       <Variable x:TypeArguments="x:Int32" Name="int과목별합격개수" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="list과목" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -170,7 +175,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ReadRange>
-    <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="과목,기준점수&#xD;&#xA;국어,80&#xD;&#xA;영어,70&#xD;&#xA;수학,70" DataTable="[dt_기준]" DisplayName="기준DT생성 | Read Range Workbook" sap:VirtualizedContainerService.HintSize="660,200" sap2010:WorkflowViewState.IdRef="ReadRange_4" Range="a1:b4" SheetName="기준테이블" WorkbookPath="[strResultPath]">
+    <ui:ReadCell Cell="c1:e1" DisplayName="Read Cell Workbook" sap:VirtualizedContainerService.HintSize="660,128" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Input" WorkbookPath="[strResultPath]">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:String">[str과목]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <WriteLine sap2010:Annotation.AnnotationText="Excel.Sheet(&quot;Sheet name&quot;).Cell(&quot;Q3&quot;)&#xD;&#xA;" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="660,172" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[str과목]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </WriteLine>
+    <ui:ReadRange DataTable="{x:Null}" AddHeaders="True" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="660,128" sap2010:WorkflowViewState.IdRef="ReadRange_6" Range="C1:E1" SheetName="Input" WorkbookPath="[strResultPath]" />
+    <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="과목,기준점수&#xA;국어,80&#xA;영어,70&#xA;수학,70" DataTable="[dt_기준]" DisplayName="기준DT생성 | Read Range Workbook" sap:VirtualizedContainerService.HintSize="660,200" sap2010:WorkflowViewState.IdRef="ReadRange_4" Range="a1:b4" SheetName="기준테이블" WorkbookPath="[strResultPath]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -196,7 +214,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign sap2010:Annotation.AnnotationText="&lt;비워 있지 않은 과목 찾기&gt;&#xD;&#xA;If(String.IsNullOrEmpty(CurrentInput(&quot;국어&quot;).ToString), If(String.IsNullOrEmpty(CurrentInput(&quot;영어&quot;).ToString),&quot;수학&quot;, &quot;영어&quot;), &quot;국어&quot;)&#xA;&#xD;&#xA;&lt;찾은 과목으로 점수 가져오기&gt;&#xA;If(String.IsNullOrEmpty(CurrentInput(str과목).ToString()),0,CInt(CurrentInput(str과목)))" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="564,304" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+            <ui:MultipleAssign sap2010:Annotation.AnnotationText="&lt;비워 있지 않은 과목 찾기&gt;&#xA;If(String.IsNullOrEmpty(CurrentInput(&quot;국어&quot;).ToString), If(String.IsNullOrEmpty(CurrentInput(&quot;영어&quot;).ToString),&quot;수학&quot;, &quot;영어&quot;), &quot;국어&quot;)&#xA;&#xA;&lt;찾은 과목으로 점수 가져오기&gt;&#xA;If(String.IsNullOrEmpty(CurrentInput(str과목).ToString()),0,CInt(CurrentInput(str과목)))" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="564,304" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -373,7 +391,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign sap2010:Annotation.AnnotationText="&lt;int과목별총개수&gt;&#xA;dt_Output.AsEnumerable().Count(Function(r) r(&quot;시험과목&quot;).ToString() = &quot;국어&quot;)&#xD;&#xA;&#xA;&lt;int과목별합격개수&gt;&#xA;dt_Output.AsEnumerable().Count(Function(r) r(&quot;시험과목&quot;).ToString() = &quot;국어&quot; And r(&quot;합격여부&quot;).ToString() = &quot;합격&quot;)&#xA;&#xA;int합격률 = (int과목별총개수/int과목별합격개수)*100" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,350" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+            <ui:MultipleAssign sap2010:Annotation.AnnotationText="&lt;int과목별총개수&gt;&#xA;dt_Output.AsEnumerable().Count(Function(r) r(&quot;시험과목&quot;).ToString() = &quot;국어&quot;)&#xA;&#xA;&lt;int과목별합격개수&gt;&#xA;dt_Output.AsEnumerable().Count(Function(r) r(&quot;시험과목&quot;).ToString() = &quot;국어&quot; And r(&quot;합격여부&quot;).ToString() = &quot;합격&quot;)&#xA;&#xA;int합격률 = (int과목별총개수/int과목별합격개수)*100" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,350" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
