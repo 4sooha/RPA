@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Billing_시퀀스" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="791,5643" sap2010:WorkflowViewState.IdRef="Billing_시퀀스_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Billing_시퀀스" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="726.4,5997.6" sap2010:WorkflowViewState.IdRef="Billing_시퀀스_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -106,7 +106,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="해외카드사와의 정산을 위한 자료 (Billing.txt 파일을 활용할 것)&#xD;&#xA;&#xD;&#xA;   - 문서의 내용을 읽어 들여서 &quot;Reference Number&quot;와 &quot;Payment Amount&quot;를 뽑아 별도 파일에 기록 (Billing Report.txt 파일 참조)&#xD;&#xA;&#xD;&#xA;   - 정상적 Payment가 아닌 경우 (두번째 컬럼에 ERROR CORRECTION으로 표시된 부분)을 제외한 나머지 payment amount의 합을 구함&#xD;&#xA;&#xD;&#xA;   - 위에서 구한 합이 밑의 TOTAL 란의 AMOUNT OF PAYMENTS의 숫자와 같은지 확인 (같아야 함)&#xD;&#xA;&#xD;&#xA;" DisplayName="Billing_시퀀스" sap:VirtualizedContainerService.HintSize="625,5578" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="해외카드사와의 정산을 위한 자료 (Billing.txt 파일을 활용할 것)&#xA;&#xA;   - 문서의 내용을 읽어 들여서 &quot;Reference Number&quot;와 &quot;Payment Amount&quot;를 뽑아 별도 파일에 기록 (Billing Report.txt 파일 참조)&#xA;&#xA;   - 정상적 Payment가 아닌 경우 (두번째 컬럼에 ERROR CORRECTION으로 표시된 부분)을 제외한 나머지 payment amount의 합을 구함&#xA;&#xA;   - 위에서 구한 합이 밑의 TOTAL 란의 AMOUNT OF PAYMENTS의 숫자와 같은지 확인 (같아야 함)&#xA;&#xA;" DisplayName="Billing_시퀀스" sap:VirtualizedContainerService.HintSize="624.8,5932.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_org_text">
         <Variable.Default>
@@ -129,9 +129,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CopyFile ContinueOnError="{x:Null}" Destination="06Billing\Billing_copy.txt" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="563,194" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="06Billing\Billing.txt" />
-    <ui:ReadTextFile File="{x:Null}" Content="[str_org_text]" DisplayName="Read Text File" FileName="06Billing\Billing_copy.txt" sap:VirtualizedContainerService.HintSize="563,120" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <Assign sap:VirtualizedContainerService.HintSize="563,122" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="06Billing\Billing_copy.txt" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="562.4,195.2" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="06Billing\Billing.txt" />
+    <ui:ReadTextFile File="{x:Null}" Content="[str_org_text]" DisplayName="Read Text File" FileName="06Billing\Billing_copy.txt" sap:VirtualizedContainerService.HintSize="562.4,120.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <Assign sap:VirtualizedContainerService.HintSize="562.4,121.6" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[str_org_text]</OutArgument>
       </Assign.To>
@@ -139,8 +139,8 @@
         <InArgument x:TypeArguments="x:String">[str_org_text.Replace(" ",";")]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;str_org_text&gt;&gt;&gt;&gt;&quot;+str_org_text]" />
-    <ui:GenerateDataTable ColumnSizes="{x:Null}" Positions="{x:Null}" CSVParsing="False" ColumnSeparators=";" DataTable="[dt_org_text]" DisplayName="Generate Data Table From Text" sap:VirtualizedContainerService.HintSize="563,241" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[str_org_text]" NewLineSeparator="&#xA;">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="562.4,130.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;str_org_text&gt;&gt;&gt;&gt;&quot;+str_org_text]" />
+    <ui:GenerateDataTable ColumnSizes="{x:Null}" Positions="{x:Null}" CSVParsing="False" ColumnSeparators=";" DataTable="[dt_org_text]" DisplayName="Generate Data Table From Text" sap:VirtualizedContainerService.HintSize="562.4,243.2" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[str_org_text]" NewLineSeparator="&#xA;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -148,7 +148,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GenerateDataTable>
-    <ui:OutputDataTable sap2010:Annotation.AnnotationText="" DataTable="[dt_org_text]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="563,120" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[strDT]">
+    <ui:OutputDataTable sap2010:Annotation.AnnotationText="" DataTable="[dt_org_text]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="562.4,120.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[strDT]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -157,17 +157,17 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OutputDataTable>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[strDT]" />
-    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dt_org_text]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="563,156" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="06Billing\Billing_test.xlsx" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="563,65" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="562.4,130.4" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[strDT]" />
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dt_org_text]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="562.4,156" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="06Billing\Billing_test.xlsx" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="562.4,380.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="496,221" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="496,222.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap2010:Annotation.AnnotationText="파일을 한줄씩 배열로 반환" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign sap2010:Annotation.AnnotationText="파일을 한줄씩 배열로 반환" sap:VirtualizedContainerService.HintSize="433.6,136" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="s:String[]">[arr_org_text]</OutArgument>
             </Assign.To>
@@ -184,12 +184,12 @@
       </ui:CommentOut.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="563,65" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="562.4,64.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
       <ui:CommentOut.Body>
         <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="496,190" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
@@ -214,52 +214,52 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:BuildDataTable DataTable="[dt_RowFilter]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="563,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Reference_x0020_No_x0020_&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ErrorCode&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:BuildDataTable DataTable="[dt_RefAmount]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="563,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;RefAamount&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_org_text]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="563,1510" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:BuildDataTable DataTable="[dt_RowFilter]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="562.4,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Reference_x0020_No_x0020_&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;ErrorCode&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:BuildDataTable DataTable="[dt_RefAmount]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="562.4,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;RefAamount&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_org_text]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="562.4,1520.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="529,1306" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="528.8,1315.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="467,130" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[CurrentRow(0).ToString]" />
-            <ui:IsMatch BuilderPattern="\b\d{12}\b{12}" DisplayName="Is Text Matching" sap:VirtualizedContainerService.HintSize="467,100" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[CurrentRow(0).ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;고급&quot;,&quot;OperationValue&quot;:&quot;\\b\\d{12}\\b&quot;,&quot;QuantifierFirstValue&quot;:&quot;12&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;정확히 일치&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\b\d{12}\b{12}" RegexOption="IgnoreCase, Compiled" Result="[bln패턴일치여부]" />
-            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="467,991" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="466.4,130.4" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[CurrentRow(0).ToString]" />
+            <ui:IsMatch BuilderPattern="\b\d{12}\b{12}" DisplayName="Is Text Matching" sap:VirtualizedContainerService.HintSize="466.4,100" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[CurrentRow(0).ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;고급&quot;,&quot;OperationValue&quot;:&quot;\\b\\d{12}\\b&quot;,&quot;QuantifierFirstValue&quot;:&quot;12&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;정확히 일치&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="\b\d{12}\b{12}" RegexOption="IgnoreCase, Compiled" Result="[bln패턴일치여부]" />
+            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="466.4,998.4" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
               <ui:IfElseIf.ConditionBlocks>
                 <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
                   <ui:IfElseIfBlock BlockType="If" Condition="[bln패턴일치여부 and CurrentRow(2).ToString.Trim.Equals(&quot;000&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,294" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,297.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString &amp; vbTab ,CurrentRow(2).ToString,CurrentRow(3).ToString.Replace(&quot;$&quot;,&quot;&quot;).Trim}]" DataTable="[dt_RowFilter]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,209" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString &amp; vbTab ,CurrentRow(2).ToString,CurrentRow(3).ToString.Replace(&quot;$&quot;,&quot;&quot;).Trim}]" DataTable="[dt_RowFilter]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="353.6,211.2" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                       </Sequence>
                     </ui:IfElseIfBlock.Then>
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CurrentRow(0).ToString.Equals(&quot;AMOUNT OF PAYMENTS&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,294" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,297.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString,CurrentRow(1).ToString.Replace(&quot;$&quot;,&quot;&quot;).Replace(&quot;,&quot;,&quot;&quot;).Trim}]" DataTable="[dt_RefAmount]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,209" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString,CurrentRow(1).ToString.Replace(&quot;$&quot;,&quot;&quot;).Replace(&quot;,&quot;,&quot;&quot;).Trim}]" DataTable="[dt_RefAmount]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="353.6,211.2" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
                       </Sequence>
                     </ui:IfElseIfBlock.Then>
                   </ui:IfElseIfBlock>
                   <ui:IfElseIfBlock BlockType="Else" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_3">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,22" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="416,22.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -276,7 +276,7 @@
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:OutputDataTable sap2010:Annotation.AnnotationText="" DataTable="[dt_RowFilter]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="563,120" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[strDT]">
+    <ui:OutputDataTable sap2010:Annotation.AnnotationText="" DataTable="[dt_RowFilter]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="562.4,120.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[strDT]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -285,11 +285,11 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OutputDataTable>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[strDT]" />
-    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_RowFilter]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="563,156" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Sheet3" WorkbookPath="06Billing\Billing_test.xlsx" />
-    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_RefAmount]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="563,156" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="Sheet4" WorkbookPath="06Billing\Billing_test.xlsx" />
-    <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="ErrorCode" DataTable="[dt_RowFilter]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="563,226" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
-    <ui:OutputDataTable sap2010:Annotation.AnnotationText="" DataTable="[dt_RowFilter]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="563,120" sap2010:WorkflowViewState.IdRef="OutputDataTable_4" Text="[str_dt_RowFilter]">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="562.4,130.4" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[strDT]" />
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_RowFilter]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="562.4,156" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Sheet3" WorkbookPath="06Billing\Billing_test.xlsx" />
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_RefAmount]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="562.4,156" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="Sheet4" WorkbookPath="06Billing\Billing_test.xlsx" />
+    <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="ErrorCode" DataTable="[dt_RowFilter]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="562.4,228" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
+    <ui:OutputDataTable sap2010:Annotation.AnnotationText="" DataTable="[dt_RowFilter]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="562.4,120.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_4" Text="[str_dt_RowFilter]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -298,20 +298,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OutputDataTable>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[str_dt_RowFilter]" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_RowFilter]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="563,394" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="562.4,130.4" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[str_dt_RowFilter]" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_RowFilter]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="562.4,396.8" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="496,190" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="496,191.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_4">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[str총계계산]</OutArgument>
               </Assign.To>
@@ -323,8 +323,8 @@
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;str총계계산&gt;&gt;&gt;&gt;&quot;+str총계계산]" />
-    <ui:OutputDataTable sap2010:Annotation.AnnotationText="" DataTable="[dt_RowFilter]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="563,120" sap2010:WorkflowViewState.IdRef="OutputDataTable_3" Text="[str_dt_RowFilter]">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="562.4,130.4" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;str총계계산&gt;&gt;&gt;&gt;&quot;+str총계계산]" />
+    <ui:OutputDataTable sap2010:Annotation.AnnotationText="" DataTable="[dt_RowFilter]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="562.4,120.8" sap2010:WorkflowViewState.IdRef="OutputDataTable_3" Text="[str_dt_RowFilter]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -333,14 +333,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OutputDataTable>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;Reference No      Amount&quot; + Environment.NewLine + str_dt_RowFilter.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;Reference No Amount&quot;,&quot;-------------------------------------------------------------------------&quot;)]" />
-    <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="1" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="563,227" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[dt_RefAmount(1)]">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="562.4,130.4" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;Reference No      Amount&quot; + Environment.NewLine + str_dt_RowFilter.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;Reference No Amount&quot;,&quot;-------------------------------------------------------------------------&quot;)]" />
+    <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="1" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="562.4,228" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[dt_RefAmount(1)]">
       <ui:GetRowItem.Value>
         <OutArgument x:TypeArguments="x:String">[aaa]</OutArgument>
       </ui:GetRowItem.Value>
     </ui:GetRowItem>
-    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="06Billing\Billing Report22.txt" sap:VirtualizedContainerService.HintSize="563,173" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[&quot;Reference No      Amount&quot; + Environment.NewLine + &#xD;&#xA;str_dt_RowFilter.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;Reference No Amount&quot;,&quot;------------------------------------------------&quot;) + Environment.NewLine +&#xD;&#xA;&quot;------------------------------------------------&quot; + Environment.NewLine +&#xD;&#xA;&quot;Total amount:    $&quot; + str총계계산 + Environment.NewLine +&#xD;&#xA;&quot;Ref. amount:     $&quot; +aaa]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="563,48" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;end&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;]">
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="06Billing\Billing Report22.txt" sap:VirtualizedContainerService.HintSize="562.4,174.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[&quot;Reference No      Amount&quot; + Environment.NewLine + &#xA;str_dt_RowFilter.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;Reference No Amount&quot;,&quot;------------------------------------------------&quot;) + Environment.NewLine +&#xA;&quot;------------------------------------------------&quot; + Environment.NewLine +&#xA;&quot;Total amount:    $&quot; + str총계계산 + Environment.NewLine +&#xA;&quot;Ref. amount:     $&quot; +aaa]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;end&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
