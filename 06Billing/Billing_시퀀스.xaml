@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Billing_시퀀스" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1254,6063" sap2010:WorkflowViewState.IdRef="Billing_시퀀스_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Billing_시퀀스" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="791,5643" sap2010:WorkflowViewState.IdRef="Billing_시퀀스_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -97,9 +97,16 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="해외카드사와의 정산을 위한 자료 (Billing.txt 파일을 활용할 것)&#xD;&#xA;&#xD;&#xA;   - 문서의 내용을 읽어 들여서 &quot;Reference Number&quot;와 &quot;Payment Amount&quot;를 뽑아 별도 파일에 기록 (Billing Report.txt 파일 참조)&#xD;&#xA;&#xD;&#xA;   - 정상적 Payment가 아닌 경우 (두번째 컬럼에 ERROR CORRECTION으로 표시된 부분)을 제외한 나머지 payment amount의 합을 구함&#xD;&#xA;&#xD;&#xA;   - 위에서 구한 합이 밑의 TOTAL 란의 AMOUNT OF PAYMENTS의 숫자와 같은지 확인 (같아야 함)&#xD;&#xA;&#xD;&#xA;" DisplayName="Billing_시퀀스" sap:VirtualizedContainerService.HintSize="625,5998" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="해외카드사와의 정산을 위한 자료 (Billing.txt 파일을 활용할 것)&#xD;&#xA;&#xD;&#xA;   - 문서의 내용을 읽어 들여서 &quot;Reference Number&quot;와 &quot;Payment Amount&quot;를 뽑아 별도 파일에 기록 (Billing Report.txt 파일 참조)&#xD;&#xA;&#xD;&#xA;   - 정상적 Payment가 아닌 경우 (두번째 컬럼에 ERROR CORRECTION으로 표시된 부분)을 제외한 나머지 payment amount의 합을 구함&#xD;&#xA;&#xD;&#xA;   - 위에서 구한 합이 밑의 TOTAL 란의 AMOUNT OF PAYMENTS의 숫자와 같은지 확인 (같아야 함)&#xD;&#xA;&#xD;&#xA;" DisplayName="Billing_시퀀스" sap:VirtualizedContainerService.HintSize="625,5578" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_org_text">
         <Variable.Default>
@@ -114,6 +121,7 @@
       <Variable x:TypeArguments="sd:DataTable" Name="dt_RefAmount" />
       <Variable x:TypeArguments="x:String" Name="str총계계산" />
       <Variable x:TypeArguments="x:String" Name="str_dt_RowFilter" />
+      <Variable x:TypeArguments="x:String" Name="aaa" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -123,24 +131,12 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:CopyFile ContinueOnError="{x:Null}" Destination="06Billing\Billing_copy.txt" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="563,194" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="06Billing\Billing.txt" />
     <ui:ReadTextFile File="{x:Null}" Content="[str_org_text]" DisplayName="Read Text File" FileName="06Billing\Billing_copy.txt" sap:VirtualizedContainerService.HintSize="563,120" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <ui:GenerateDataTable ColumnSizes="{x:Null}" Positions="{x:Null}" CSVParsing="False" ColumnSeparators="&#x9;" DataTable="[dt_org_text]" DisplayName="Generate Data Table From Text" sap:VirtualizedContainerService.HintSize="563,241" sap2010:WorkflowViewState.IdRef="GenerateDataTable_2" Input="[str_org_text]" NewLineSeparator="&#xA;" />
-    <ui:OutputDataTable sap2010:Annotation.AnnotationText="" DataTable="[dt_org_text]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="563,120" sap2010:WorkflowViewState.IdRef="OutputDataTable_5" Text="[strDT]">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:OutputDataTable>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[strDT]" />
-    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dt_org_text]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="563,156" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="Sheet5" WorkbookPath="06Billing\Billing_test.xlsx" />
     <Assign sap:VirtualizedContainerService.HintSize="563,122" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[str_org_text]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String" xml:space="preserve">[str_org_text.Replace("  ",";")]</InArgument>
+        <InArgument x:TypeArguments="x:String">[str_org_text.Replace(" ",";")]</InArgument>
       </Assign.Value>
     </Assign>
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;str_org_text&gt;&gt;&gt;&gt;&quot;+str_org_text]" />
@@ -245,7 +241,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString,CurrentRow(2).ToString,CurrentRow(3).ToString.Replace(&quot;$&quot;,&quot;&quot;).Trim}]" DataTable="[dt_RowFilter]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,209" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString &amp; vbTab ,CurrentRow(2).ToString,CurrentRow(3).ToString.Replace(&quot;$&quot;,&quot;&quot;).Trim}]" DataTable="[dt_RowFilter]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,209" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                       </Sequence>
                     </ui:IfElseIfBlock.Then>
                   </ui:IfElseIfBlock>
@@ -337,8 +333,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OutputDataTable>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[str_dt_RowFilter]" />
-    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="06Billing\Billing Report22.txt" sap:VirtualizedContainerService.HintSize="563,173" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[str_dt_RowFilter]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="563,130" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;Reference No      Amount&quot; + Environment.NewLine + str_dt_RowFilter.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;Reference No Amount&quot;,&quot;-------------------------------------------------------------------------&quot;)]" />
+    <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="1" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="563,227" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[dt_RefAmount(1)]">
+      <ui:GetRowItem.Value>
+        <OutArgument x:TypeArguments="x:String">[aaa]</OutArgument>
+      </ui:GetRowItem.Value>
+    </ui:GetRowItem>
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="06Billing\Billing Report22.txt" sap:VirtualizedContainerService.HintSize="563,173" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[&quot;Reference No      Amount&quot; + Environment.NewLine + &#xD;&#xA;str_dt_RowFilter.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;Reference No Amount&quot;,&quot;------------------------------------------------&quot;) + Environment.NewLine +&#xD;&#xA;&quot;------------------------------------------------&quot; + Environment.NewLine +&#xD;&#xA;&quot;Total amount:    $&quot; + str총계계산 + Environment.NewLine +&#xD;&#xA;&quot;Ref. amount:     $&quot; +aaa]" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="563,48" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;end&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
