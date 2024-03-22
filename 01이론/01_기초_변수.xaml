@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="_01_기초_변수" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="775.2,776.8" sap2010:WorkflowViewState.IdRef="_01_기초_변수_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="_01_기초_변수" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1894.0000000000002,1178" sap2010:WorkflowViewState.IdRef="_01_기초_변수_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -28,6 +28,9 @@
       <x:String>System.Reflection</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -76,20 +79,32 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="&lt;변수 생성 방법&gt;&#xD;&#xA;1. Ctrl +K&#xD;&#xA;2. 하단의 변수 패널에서 생성&#xD;&#xA;&#xD;&#xA;&lt;변수 생성 시 확인사항&gt;&#xD;&#xA;1. 이름 - 공백없이&#xD;&#xA;2. 변수의 데이터타입&#xD;&#xA;3. 변수 사용 범위&#xD;&#xA;" DisplayName="_01_기초_변수" sap:VirtualizedContainerService.HintSize="496,712" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="&lt;변수 생성 방법&gt;&#xA;1. Ctrl +K&#xA;2. 하단의 변수 패널에서 생성&#xA;&#xA;&lt;변수 생성 시 확인사항&gt;&#xA;1. 이름 - 공백없이&#xA;2. 변수의 데이터타입&#xA;3. 변수 사용 범위&#xA;" DisplayName="_01_기초_변수" sap:VirtualizedContainerService.HintSize="496,557" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str날짜" />
       <Variable x:TypeArguments="x:String" Name="str인사" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt">
+        <Variable.Default>
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="New System.Data.DataTable" />
+        </Variable.Default>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap2010:Annotation.AnnotationText="str날짜 = 오늘 날짜를 의미함&#xD;&#xA;Now.ToString(&quot;yyyyMMddhhmmss&quot;)" DisplayName="날짜 변수 생성 | Assign" sap:VirtualizedContainerService.HintSize="433.6,165.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap2010:Annotation.AnnotationText="str날짜 = 오늘 날짜를 의미함&#xA;Now.ToString(&quot;yyyyMMddhhmmss&quot;)" DisplayName="날짜 변수 생성 | Assign" sap:VirtualizedContainerService.HintSize="434,167" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[str날짜]</OutArgument>
       </Assign.To>
@@ -102,7 +117,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <WriteLine sap2010:Annotation.AnnotationText="//3일 전&#xD;&#xA;DateTime.Now.AddDays(-3).ToString(&quot;yyyyMMdd&quot;)&#xD;&#xA;//3일 후&#xD;&#xA;DateTime.Now.AddDays(3).ToString(&quot;yyyyMMdd&quot;)&#xD;&#xA;//3개월 후&#xD;&#xA;DateTime.Now.AddMonths(3).ToString(&quot;yyyyMMdd&quot;)&#xD;&#xA;//3개월하고 3일 후&#xD;&#xA;DateTime.Now.AddMonths(3).AddDays(3).ToString(&quot;yyyyMMdd&quot;)&#xD;&#xA;//오늘이 무슨 요일인지&#xD;&#xA;DateTime.Now.DayOfWeek.ToString" DisplayName="내일 날짜 | Write Line" sap:VirtualizedContainerService.HintSize="433.6,301.6" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[Now.AddDays(1).ToString(&quot;yyyyMMdd&quot;)]">
+    <WriteLine sap2010:Annotation.AnnotationText="//3일 전&#xA;DateTime.Now.AddDays(-3).ToString(&quot;yyyyMMdd&quot;)&#xA;//3일 후&#xA;DateTime.Now.AddDays(3).ToString(&quot;yyyyMMdd&quot;)&#xA;//3개월 후&#xA;DateTime.Now.AddMonths(3).ToString(&quot;yyyyMMdd&quot;)&#xA;//3개월하고 3일 후&#xA;DateTime.Now.AddMonths(3).AddDays(3).ToString(&quot;yyyyMMdd&quot;)&#xA;//오늘이 무슨 요일인지&#xA;DateTime.Now.DayOfWeek.ToString" DisplayName="내일 날짜 | Write Line" sap:VirtualizedContainerService.HintSize="434,302" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[Now.AddDays(1).ToString(&quot;yyyyMMdd&quot;)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
