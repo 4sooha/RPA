@@ -1,0 +1,390 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DataPivot_All_self" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1092,3447" sap2010:WorkflowViewState.IdRef="DataPivot_All_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
+      <x:String>UiPath.GSuite.Sheets.Enums</x:String>
+      <x:String>UiPath.GSuite.Sheets.Models</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Excel.Activities.Business.Filter</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="//DataPivot&#xA;&#xA;- Templete.xlsx 파일을 Copy하여 &quot;DataPivot_정수진.xlsx&quot;라는 결과파일을 만듦&#xA;&#xA;- 결과파일에 각각의 데이터 파일(가~라)에서 데이터를 피벗하여 나온 데이터를 각 시트에 붙여넣고, 데이터의 합계를 종합시트에 기입&#xA;&#xA;- 종합시트 상단 : '현재년도 현재월 자료' 라고 상단에 기입&#xA;- 제품별 시트 : 각 Row 데이터를 종합한뒤 제품별로 정렬 후 기입 &#xA;  (단, 데이터 포맷이 깨지지 않도록 작업할 것)&#xA;" DisplayName="DataPivot_All_self" sap:VirtualizedContainerService.HintSize="880,3382" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strName" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtName" />
+      <Variable x:TypeArguments="x:String" Name="strFilePath" />
+      <Variable x:TypeArguments="x:String" Name="strFileCopy" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="818,65" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;start &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; &quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="818,187" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strFilePath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">["07DataPivot\excel_data\Templete.xlsx"]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strFileCopy]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">["07DataPivot\excel_data\DataPivot_김수하.xlsx"]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[strFileCopy]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="818,194" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[strFilePath]" />
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="818,2638" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[{&quot;가&quot;,&quot;나&quot;,&quot;다&quot;,&quot;라&quot;}]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="784,2434" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="722,130" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[currentText]" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="722,65" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="416,133" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelApplicationScope Password="{x:Null}" WorkbookPath="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000">
+                    <ui:ExcelApplicationScope.Body>
+                      <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:ExcelCreatePivotTable Range="{x:Null}" SourceTableName="{x:Null}" TableName="{x:Null}" DisplayName="Create Pivot Table" sap:VirtualizedContainerService.HintSize="354,139" sap2010:WorkflowViewState.IdRef="ExcelCreatePivotTable_1" SheetName="Sheet1" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ExcelApplicationScope.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ExcelApplicationScope>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="722,2154" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_3">
+              <ueab:ExcelProcessScopeX.Body>
+                <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="688,2044" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="626,1959" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" ResizeWindow="None" WorkbookPath="[strFileCopy]">
+                      <ueab:ExcelApplicationCard.Body>
+                        <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="ExcelOut" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="592,1667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="530,1534" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" TemplatePath="07DataPivot\excel_data\DataPivot_김수하.xlsx" WorkbookPath="[&quot;07DataPivot\excel_data\&quot;+currentText+&quot;.xlsx&quot;]">
+                              <ueab:ExcelApplicationCard.Body>
+                                <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="496,1225" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ueab:CreatePivotTableXv2 DestinationRange="[Excel.Sheet(&quot;Summary&quot;)]" DisplayName="Create Pivot Table" sap:VirtualizedContainerService.HintSize="434,467" sap2010:WorkflowViewState.IdRef="CreatePivotTableXv2_1" LayoutRowType="Compact" Range="[Excel.Sheet(&quot;Sheet1&quot;).Range(&quot;A:G&quot;)]" TableName="Summary" ValuesMode="Columns">
+                                      <ueab:CreatePivotTableXv2.Body>
+                                        <ActivityAction>
+                                          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="416,322" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ueab:PivotTableFieldX DisplayName="피벗 필드" FieldName="품명" Function="Sum" sap:VirtualizedContainerService.HintSize="382,95" sap2010:WorkflowViewState.IdRef="PivotTableFieldX_1" Type="Row" />
+                                            <ueab:PivotTableFieldX DisplayName="피벗 필드" FieldName="금액" Function="Sum" sap:VirtualizedContainerService.HintSize="382,95" sap2010:WorkflowViewState.IdRef="PivotTableFieldX_2" Type="Value" />
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </ueab:CreatePivotTableXv2.Body>
+                                    </ueab:CreatePivotTableXv2>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,65" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="496,352" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ueab:SortX sap2010:Annotation.AnnotationText="오류.. 피벗테이블은 Sort Range가 안되나?" DisplayName="Sort Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="434,267" sap2010:WorkflowViewState.IdRef="SortX_2" Range="[ExcelOut.Sheet(&quot;Summary&quot;)]">
+                                            <ueab:SortX.Body>
+                                              <ActivityAction>
+                                                <Sequence DisplayName="실행" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ueab:SortColumnX ColumnName="행 레이블" DisplayName="열 기준 정렬" sap:VirtualizedContainerService.HintSize="382,72" sap2010:WorkflowViewState.IdRef="SortColumnX_2" SortDirection="Ascending" />
+                                                </Sequence>
+                                              </ActivityAction>
+                                            </ueab:SortX.Body>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ueab:SortX>
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:CommentOut>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,65" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="506,308" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ueab:ReadRangeX sap2010:Annotation.AnnotationText="&quot;dt_&quot;+currentText.ToString   &lt;&lt; 이런식의 변수가 선언되지 않아서 오류" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="444,223" sap2010:WorkflowViewState.IdRef="ReadRangeX_3" Range="[ExcelOut.Sheet(currentText+&quot;Summary&quot;).PivotTable(currentText+&quot;Summary&quot;)]" SaveTo="[dtName]">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ueab:ReadRangeX>
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:CommentOut>
+                                    <ueab:CopyPasteRangeX DestinationRange="[ExcelOut.Sheet(currentText).Range(&quot;B3:C8&quot;)]" DisplayName="Copy/Paste Range" sap:VirtualizedContainerService.HintSize="434,280" sap2010:WorkflowViewState.IdRef="CopyPasteRangeX_1" PasteOptions="Values" SourceRange="[Excel.Sheet(&quot;Summary&quot;).Range(&quot;A2:B7&quot;)]" Transpose="False" />
+                                    <ueab:CopyPasteRangeX DestinationRange="[ExcelOut.Sheet(currentText).Range(&quot;C9&quot;)]" DisplayName="Copy/Paste Range" sap:VirtualizedContainerService.HintSize="434,263" sap2010:WorkflowViewState.IdRef="CopyPasteRangeX_2" PasteOptions="Values" SourceRange="[Excel.Sheet(&quot;Summary&quot;).Range(&quot;B9&quot;)]" Transpose="False" />
+                                  </Sequence>
+                                </ActivityAction>
+                              </ueab:ExcelApplicationCard.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ueab:ExcelApplicationCard>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="530,48" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="416,269" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:FilterDataTable DataTable="[dtName]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="354,184" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dtName]" SelectColumnsMode="Remove">
+                                    <ui:FilterDataTable.Filters>
+                                      <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                                        <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
+                                          <ui:FilterOperationArgument.Column>
+                                            <InArgument x:TypeArguments="x:Int32">[1]</InArgument>
+                                          </ui:FilterOperationArgument.Column>
+                                        </ui:FilterOperationArgument>
+                                      </scg:List>
+                                    </ui:FilterDataTable.Filters>
+                                    <ui:FilterDataTable.SelectColumns>
+                                      <scg:List x:TypeArguments="InArgument" Capacity="4">
+                                        <x:Null />
+                                      </scg:List>
+                                    </ui:FilterDataTable.SelectColumns>
+                                  </ui:FilterDataTable>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:CommentOut>
+                          </Sequence>
+                        </ActivityAction>
+                      </ueab:ExcelApplicationCard.Body>
+                    </ueab:ExcelApplicationCard>
+                  </Sequence>
+                </ActivityAction>
+              </ueab:ExcelProcessScopeX.Body>
+            </ueab:ExcelProcessScopeX>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="818,48" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;end&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;  &quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+  </Sequence>
+</Activity>
